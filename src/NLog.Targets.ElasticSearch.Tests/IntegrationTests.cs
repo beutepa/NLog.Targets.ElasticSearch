@@ -31,8 +31,6 @@ namespace NLog.Targets.ElasticSearch.Tests
         public void ExceptionTest()
         {
             var elasticTarget = new ElasticSearchTarget();
-            elasticTarget.User = "elastic";
-            elasticTarget.Password = "changeme";
 
             var rule = new LoggingRule("*", elasticTarget);
             rule.EnableLoggingForLevel(LogLevel.Error);
@@ -46,7 +44,7 @@ namespace NLog.Targets.ElasticSearch.Tests
 
             var exception = new ArgumentException("Some random error message");
 
-            logger.Error(exception, "An exception occured");
+            logger.Error( "An exception occured", exception);
 
             LogManager.Flush();
         }
