@@ -31,6 +31,8 @@ namespace NLog.Targets.ElasticSearch.Tests
         public void ExceptionTest()
         {
             var elasticTarget = new ElasticSearchTarget();
+            elasticTarget.User = "elastic";
+            elasticTarget.Password = "changeme";
 
             var rule = new LoggingRule("*", elasticTarget);
             rule.EnableLoggingForLevel(LogLevel.Error);
